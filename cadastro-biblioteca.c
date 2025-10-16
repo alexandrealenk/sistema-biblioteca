@@ -133,7 +133,7 @@ int main() {
 
                 if (totalEmprestimos >= MAX_EMPRESTIMOS) {
                     printf("Capacidade maxima de emprestimos atingida.\n");
-                } else
+                } else {
                     printf("Livros disponiveis:\n");
                     int disponiveis = 0;
                     for (int i = 0; i < totalLivros; i++) {
@@ -142,6 +142,7 @@ int main() {
                             disponiveis++;
                         }
                     }
+
                     if (disponiveis == 0) {
                         printf("Nenhum livro disponivel para emprestimo.\n");
                     } else {
@@ -162,20 +163,21 @@ int main() {
                             emprestimos[totalEmprestimos].indiceLivro = indice;
 
                             biblioteca[indice].disponivel = 0; // atualiza o status do livro para emprestado.
+                            
                             totalEmprestimos++;
-
                             printf("Emprestimo realizado com sucesso!\n");
                         } else {
                             printf("Numero de livro invalido ou livro indisponivel.\n");
                         }
                     }
-                    printf("\nPressione Enter para continuar...");
-                    getchar();
-                    break;
-
-                case 4: // Listar empréstimos
-                    ("=== Lista de Emprestimos ===\n");
-                    if (totalEmprestimos == 0) {
+                }
+                printf("\nPressione Enter para continuar...");
+                getchar();
+                break;
+                
+            case 4: // Listar empréstimos
+                printf("=== Lista de Emprestimos ===\n");
+                if (totalEmprestimos == 0) {
                     printf("Nenhum emprestimo registrado.\n");
                     } else {
                         for (int i = 0; i < totalEmprestimos; i++) {
