@@ -64,7 +64,7 @@ int main() {
         printf("4 - Listar emprestimos\n");
         printf("0 - Sair\n");
         printf("===============================\n");
-        printf("Escolha uma opcao: ");
+        printf("\nEscolha uma opcao: ");
 
         //Lê a opção do usuário.
         scanf("%d", &opcao);
@@ -73,7 +73,7 @@ int main() {
         //---Processa a opção escolhida.
         switch (opcao) {
             case 1: // Cadastrar novo livro
-                printf("=== Cadastro de novo livro ===\n");
+                printf("\n=== Cadastro de novo livro ===\n");
                 
                 if (totalLivros < MAX_LIVROS) {
                     printf("Digite o nome do livro: ");
@@ -110,7 +110,7 @@ int main() {
                 break;
 
             case 2: // Listar todos os livros
-                printf("=== Lista de livros cadastrados ===\n");
+                printf("\n=== Lista de livros cadastrados ===\n");
                 if (totalLivros == 0) {
                     printf("Nenhum livro cadastrado.\n");
                 } else {
@@ -120,8 +120,10 @@ int main() {
                         printf("Autor: %s\n", biblioteca[i].autor);
                         printf("Editora: %s\n", biblioteca[i].editora);
                         printf("Edicao: %d\n", biblioteca[i].edicao);
+                        printf("Status: %s\n", biblioteca[i].disponivel ? "Disponivel" : "Emprestado");
+                        printf("---------------------------------\n");
                     }
-                    printf("===============================\n");
+                    printf("\n===============================\n");
                 }
 
                 // Pausa para o usuário ler a lista
@@ -146,9 +148,9 @@ int main() {
                     }
 
                     if (disponiveis == 0) {
-                        printf("Nenhum livro disponivel para emprestimo.\n");
+                        printf("\nNenhum livro disponivel para emprestimo.\n");
                     } else {
-                        printf("Digite o numero do livro que deseja emprestar: ");
+                        printf("\nDigite o numero do livro que deseja emprestar: ");
                         int numlivro;
                         scanf("%d", &numlivro);
                         limparBufferEntrada();
@@ -157,7 +159,7 @@ int main() {
 
                         //validação da escolha do usuário.
                         if (indice >= 0 && indice < totalLivros && biblioteca[indice].disponivel) {
-                            printf("Digite o nome do usuario que esta pegando o livro: ");
+                            printf("\nDigite o nome do usuario que esta pegando o livro: ");
                             fgets(emprestimos[totalEmprestimos].nomeUsuario, TAM_STRING, stdin);
                             emprestimos[totalEmprestimos].nomeUsuario[strcspn(emprestimos[totalEmprestimos].nomeUsuario, "\n")] = 0;
 
@@ -167,7 +169,7 @@ int main() {
                             biblioteca[indice].disponivel = 0; // atualiza o status do livro para emprestado.
                             
                             totalEmprestimos++;
-                            printf("Emprestimo realizado com sucesso!\n");
+                            printf("\nEmprestimo realizado com sucesso!\n");
                         } else {
                             printf("Numero de livro invalido ou livro indisponivel.\n");
                         }
@@ -178,7 +180,7 @@ int main() {
                 break;
                 
             case 4: // Listar empréstimos
-                printf("=== Lista de Emprestimos ===\n");
+                printf("\n=== Lista de Emprestimos ===\n");
                 if (totalEmprestimos == 0) {
                     printf("Nenhum emprestimo registrado.\n");
                     } else {
