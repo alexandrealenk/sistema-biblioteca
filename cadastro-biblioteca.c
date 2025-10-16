@@ -96,6 +96,8 @@ int main() {
                     scanf("%d", &biblioteca[totalLivros].edicao);
                     limparBufferEntrada();
 
+                    // Marca o livro como disponível.
+                    biblioteca[totalLivros].disponivel = 1;
 
                     totalLivros++;
                     //totalLivros = totalLivros +1;
