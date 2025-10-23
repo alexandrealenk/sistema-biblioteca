@@ -190,6 +190,7 @@ int main() {
                         printf("Emprestimo %d:\n", i + 1);
                         printf("Livro: %s\n", biblioteca[indiceLivro].nome);
                         printf("Usuario: %s\n", emprestimos[i].nomeUsuario);
+                        printf("-------------------------------\n");
                     }
                     printf("===============================\n");
                 }
